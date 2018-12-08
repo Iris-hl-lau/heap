@@ -25,10 +25,10 @@ private:
     };
 
 public:
-    template<template<typename, typename> class STL, typename ARG>
+    template<template<typename...> class STL, typename... ARG>
     //Heap constructor.
     //Accepts and copies a STL with one argument .
-    heap(STL<T, ARG> container) {
+    heap(STL<T, ARG...> container) {
         for(auto element : container) {
             my_container.push_back(element);
         }

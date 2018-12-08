@@ -28,5 +28,6 @@ int main() {
 
     designImp& ref  = designImp::getInstance();
     ref.run();
+    ref.run1();
     return 0;
 }

@@ -7,6 +7,7 @@
 
 #include "heap.hpp"
 #include <vector>
+#include <set>
 
 /**
  * Prototype for class designImp.
@@ -23,6 +24,7 @@ public:
     }
 
     void run();
+    void run1();
 };
 
 
