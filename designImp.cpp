@@ -34,20 +34,21 @@ void designImp::run() {
     cout << endl;
 }
 
+//Runs a test for STL set and user inputted data
 void designImp::run1() {
     int size = 6;
-    int value = 12;
-    set<int> pq;
+    double value = 12.254;
+    set<double> pq;
 
     while(size > 0) {
-        int num;
+        double num;
         cout << "Enter a number." << endl;
         cin >> num;
         pq.insert(num);
         --size;
     }
 
-    heap<int> h(pq);
+    heap<double> h(pq);
     cout << h << endl;
     cout << "Size: " << h.size() << endl;
     cout << endl;
