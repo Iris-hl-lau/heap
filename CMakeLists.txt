@@ -5,4 +5,4 @@ set(CMAKE_CXX_STANDARD 14)
 
 set(CMAKE_CXX_FLAGS "-Wall -Wextra -pedantic -std=c++14")
 
-add_executable(asn4 main.cpp heap.hpp)
+add_executable(asn4 main.cpp heap.hpp designImp.cpp designImp.hpp)

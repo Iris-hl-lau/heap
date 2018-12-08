@@ -6,58 +6,68 @@
 #define ASN4_HEAP_HPP
 #include <algorithm>
 #include <iostream>
+#include <deque>
 using namespace std;
-template <typename STL>
+
+
+template <typename T>
+/**
+ * Template class heap.
+ * @tparam T Heap type.
+ */
 class heap {
 private:
-    STL my_container;
+    deque<T> my_container; //Heap container.
 
+    //Turns a copy a STL container into a heap.
     void heapify() {
         make_heap(my_container.begin(), my_container.end());
     };
 
 public:
-    heap(STL container) : my_container(container){
-        make_heap(my_container.begin(), my_container.end());
-    };
+    template<template<typename, typename> class STL, typename ARG>
+    //Heap constructor.
+    //Accepts and copies a STL with one argument .
+    heap(STL<T, ARG> container) {
+        for(auto element : container) {
+            my_container.push_back(element);
+        }
+        heapify();
+    }
 
     template <typename element_type>
+    //Pushes element of type into heap.
     void push(element_type element) {
         my_container.push_back(element);
         push_heap(my_container.begin(), my_container.end());
         heapify();
     }
 
+    //Pops max element from heap and returns the value.
     auto pop() {
         auto max = my_container.front();
-        my_container.pop_back();
+        my_container.pop_front();
         pop_heap(my_container.begin(), my_container.end());
         heapify();
         return max;
     };
 
+    //Returns the size of the heap
     int size() {
-        int size = 0;
-        for(auto element : my_container) {
-            size++;
-        }
-        heapify();
-        return size;
+        return my_container.size();
     };
 
+    //Returns a boolean to whether the heap is empty.
     bool is_empty() {
-        if(size() == 0) {
-            return true;
-        }
-        return false;
+        return my_container.empty();
     }
 
+    //Clears the heap
     void clear() {
-        for(auto element : my_container) {
-            pop();
-        }
+        my_container.clear();
     }
 
+    //Prints all the elements in the heap.
     friend ostream& operator<< (ostream& os, const heap& heap) {
         for(auto& element : heap.my_container) {
             os << element << " ";
