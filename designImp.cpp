@@ -7,7 +7,10 @@
 /**
  * Defining the constructor for class designImp.
  */
-designImp::designImp() {
+designImp::designImp() {}
+
+//Runs a test for a set vector
+void designImp::run() {
     int num = 4;
     vector<int> v = {20, 40, 25, 15, 30};
     heap<int> h(v);
@@ -29,5 +32,4 @@ designImp::designImp() {
     cout << "Is empty: " << h.is_empty() << endl;
     cout << "Size: " << h.size() << endl;
     cout << endl;
-
 }

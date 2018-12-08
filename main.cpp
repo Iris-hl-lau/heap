@@ -26,6 +26,7 @@ int main() {
 //    cout << "Size: " << h.size() << endl;
 //    cout << endl;
 
-    designImp::getInstance();
+    designImp& ref  = designImp::getInstance();
+    ref.run();
     return 0;
 }

@@ -21,6 +21,8 @@ public:
         static designImp designImp1;
         return designImp1;
     }
+
+    void run();
 };
 
 
